@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="700" viewBox="0 0 1000 700" role="img" aria-label="Map placeholder for Bakersfield location">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#DCE6DF"/>
+      <stop offset="100%" stop-color="#C5D2C9"/>
+    </linearGradient>
+  </defs>
+  <rect width="1000" height="700" fill="url(#g)"/>
+  <path d="M0 180 H1000 M0 340 H1000 M0 500 H1000 M220 0 V700 M480 0 V700 M740 0 V700" stroke="#1C3A2E" stroke-opacity="0.08" stroke-width="2"/>
+  <circle cx="500" cy="340" r="28" fill="#1C3A2E"/>
+  <circle cx="500" cy="340" r="12" fill="#B8893D"/>
+  <text x="500" y="420" text-anchor="middle" fill="#1C3A2E" font-family="Georgia, serif" font-size="28">Bakersfield, CA</text>
+  <text x="500" y="460" text-anchor="middle" fill="#1C3A2E" font-family="system-ui, sans-serif" font-size="16" opacity="0.7">Map placeholder · Replace with embed if desired</text>
+</svg>

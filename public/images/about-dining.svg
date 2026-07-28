@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="1400" viewBox="0 0 1200 1400" role="img" aria-label="Dining room placeholder">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="80%" y2="100%">
+      <stop offset="0%" stop-color="#243F34"/>
+      <stop offset="100%" stop-color="#6B4E28"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1400" fill="url(#g)"/>
+  <rect x="120" y="180" width="960" height="1040" rx="28" fill="#F4E6C8" opacity="0.08"/>
+  <text x="120" y="1280" fill="#F7F3EA" font-family="Georgia, serif" font-size="36" opacity="0.7">About · Dining atmosphere</text>
+</svg>

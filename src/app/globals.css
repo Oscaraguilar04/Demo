@@ -1,0 +1,129 @@
+@import "tailwindcss";
+
+:root {
+  --brand-primary: #1c3a2e;
+  --brand-accent: #b8893d;
+  --brand-primary-soft: #2a5240;
+  --surface: #f4f6f2;
+  --surface-elevated: #ffffff;
+  --ink: #18241e;
+  --ink-muted: #4d5c54;
+  --line: rgba(28, 58, 46, 0.12);
+  --shadow-soft: 0 12px 40px rgba(24, 36, 30, 0.08);
+  --radius-card: 1.25rem;
+  --mobile-bar-height: 4.5rem;
+}
+
+@theme inline {
+  --color-background: var(--surface);
+  --color-foreground: var(--ink);
+  --color-brand: var(--brand-primary);
+  --color-accent: var(--brand-accent);
+  --color-muted: var(--ink-muted);
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  background:
+    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(184, 137, 61, 0.12), transparent 55%),
+    radial-gradient(ellipse 70% 45% at 100% 0%, rgba(28, 58, 46, 0.1), transparent 50%),
+    linear-gradient(180deg, #eef2ed 0%, var(--surface) 28%, #f7f8f5 100%);
+  color: var(--ink);
+  font-family: var(--font-body), system-ui, sans-serif;
+  min-height: 100%;
+}
+
+::selection {
+  background: color-mix(in srgb, var(--brand-accent) 35%, white);
+  color: var(--ink);
+}
+
+:focus-visible {
+  outline: 3px solid var(--brand-accent);
+  outline-offset: 3px;
+}
+
+.font-display {
+  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+}
+
+.section-shell {
+  @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
+}
+
+.section-pad {
+  @apply py-20 sm:py-24 lg:py-28;
+}
+
+.eyebrow {
+  @apply text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--brand-accent)];
+}
+
+.btn-primary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--brand-primary)] px-6 py-3 text-sm font-semibold text-white shadow-[var(--shadow-soft)] transition duration-200 hover:-translate-y-0.5 hover:bg-[color:var(--brand-primary-soft)] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[color:var(--brand-accent)];
+}
+
+.btn-secondary {
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-[color:var(--line)] bg-white/70 px-6 py-3 text-sm font-semibold text-[color:var(--brand-primary)] backdrop-blur-sm transition duration-200 hover:-translate-y-0.5 hover:border-[color:var(--brand-primary)] hover:bg-white focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[color:var(--brand-accent)];
+}
+
+.btn-accent {
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--brand-accent)] px-6 py-3 text-sm font-semibold text-[#1a2418] shadow-[var(--shadow-soft)] transition duration-200 hover:-translate-y-0.5 hover:brightness-105 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[color:var(--brand-primary)];
+}
+
+.card-surface {
+  @apply rounded-[var(--radius-card)] border border-[color:var(--line)] bg-[color:var(--surface-elevated)] shadow-[var(--shadow-soft)];
+}
+
+.fade-up {
+  animation: fade-up 0.7s ease-out both;
+}
+
+.fade-up-delay-1 {
+  animation-delay: 0.12s;
+}
+
+.fade-up-delay-2 {
+  animation-delay: 0.24s;
+}
+
+@keyframes fade-up {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Space for fixed mobile action bar */
+.page-with-mobile-bar {
+  padding-bottom: calc(var(--mobile-bar-height) + env(safe-area-inset-bottom, 0px));
+}
+
+@media (min-width: 768px) {
+  .page-with-mobile-bar {
+    padding-bottom: 0;
+  }
+}
