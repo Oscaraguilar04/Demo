@@ -5,8 +5,8 @@ export function Footer() {
   const year = new Date().getFullYear();
 
   return (
-    <footer className="relative overflow-hidden bg-[color:var(--brand-primary)] text-white">
-      <div className="absolute inset-0 opacity-30">
+    <footer className="relative overflow-hidden bg-[color:var(--brand-primary)] text-[#f7f1e6]">
+      <div className="absolute inset-0 opacity-25">
         <Image
           src={restaurant.galleryImages[0]}
           alt=""
@@ -14,15 +14,15 @@ export function Footer() {
           className="object-cover"
           sizes="100vw"
         />
-        <div className="absolute inset-0 bg-[color:var(--brand-primary)]/85" />
+        <div className="absolute inset-0 bg-[color:var(--brand-primary)]/90" />
       </div>
 
       <div className="section-shell relative py-16 sm:py-20">
         <div className="mb-14 max-w-2xl">
-          <p className="font-display text-4xl font-bold tracking-tight sm:text-5xl">
+          <p className="font-display text-4xl font-bold tracking-[0.04em] uppercase sm:text-5xl">
             {restaurant.shortName}
           </p>
-          <p className="mt-4 text-lg text-white/70">{restaurant.tagline}</p>
+          <p className="mt-4 text-lg text-[#f7f1e6]/7">{restaurant.tagline}</p>
           <div className="mt-8 flex flex-wrap gap-3">
             <a
               href={restaurant.orderUrl}
@@ -36,23 +36,23 @@ export function Footer() {
               href={restaurant.instagramUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-secondary border-white/20 bg-white/10 text-white hover:bg-white/20"
+              className="btn-secondary border-[#f7f1e6]/25 bg-[#f7f1e6]/10 text-[#f7f1e6] hover:bg-[#f7f1e6]/20"
             >
               Instagram
             </a>
           </div>
         </div>
 
-        <div className="grid gap-10 border-t border-white/15 pt-10 md:grid-cols-3">
+        <div className="grid gap-10 border-t border-[#f7f1e6]/15 pt-10 md:grid-cols-3">
           <div>
-            <h2 className="text-[11px] font-bold uppercase tracking-[0.22em] text-[color:var(--brand-accent)]">
+            <h2 className="text-[11px] font-bold uppercase tracking-[0.28em] text-[color:var(--brand-accent)]">
               Contact
             </h2>
-            <ul className="mt-4 space-y-2 text-sm text-white/80">
+            <ul className="mt-4 space-y-2 text-sm text-[#f7f1e6]/8">
               <li>
                 <a
                   href={`tel:+1${restaurant.phone}`}
-                  className="transition hover:text-white"
+                  className="transition hover:text-[#f7f1e6]"
                 >
                   {restaurant.formattedPhone}
                 </a>
@@ -60,7 +60,7 @@ export function Footer() {
               <li>
                 <a
                   href={`mailto:${restaurant.email}`}
-                  className="transition hover:text-white"
+                  className="transition hover:text-[#f7f1e6]"
                 >
                   {restaurant.email}
                 </a>
@@ -70,7 +70,7 @@ export function Footer() {
                   href={restaurant.directionsUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="transition hover:text-white"
+                  className="transition hover:text-[#f7f1e6]"
                 >
                   {getFullAddress()}
                 </a>
@@ -79,14 +79,14 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="text-[11px] font-bold uppercase tracking-[0.22em] text-[color:var(--brand-accent)]">
+            <h2 className="text-[11px] font-bold uppercase tracking-[0.28em] text-[color:var(--brand-accent)]">
               Hours
             </h2>
-            <ul className="mt-4 space-y-1.5 text-sm text-white/80">
+            <ul className="mt-4 space-y-1.5 text-sm text-[#f7f1e6]/8">
               {restaurant.hours.map((entry) => (
                 <li key={entry.day} className="flex justify-between gap-3">
                   <span>{entry.day.slice(0, 3)}</span>
-                  <span className="tabular-nums text-white/55">
+                  <span className="tabular-nums text-[#f7f1e6]/5">
                     {entry.closed
                       ? "Closed"
                       : `${entry.open.replace(":00 ", "")}–${entry.close.replace(":00 ", "")}`}
@@ -97,7 +97,7 @@ export function Footer() {
           </div>
 
           <div>
-            <h2 className="text-[11px] font-bold uppercase tracking-[0.22em] text-[color:var(--brand-accent)]">
+            <h2 className="text-[11px] font-bold uppercase tracking-[0.28em] text-[color:var(--brand-accent)]">
               Social
             </h2>
             <ul className="mt-4 space-y-2 text-sm">
@@ -106,7 +106,7 @@ export function Footer() {
                   href={restaurant.instagramUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/80 transition hover:text-white"
+                  className="text-[#f7f1e6]/8 transition hover:text-[#f7f1e6]"
                 >
                   Instagram
                 </a>
@@ -116,7 +116,7 @@ export function Footer() {
                   href={restaurant.facebookUrl}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-white/80 transition hover:text-white"
+                  className="text-[#f7f1e6]/8 transition hover:text-[#f7f1e6]"
                 >
                   Facebook
                 </a>
@@ -125,12 +125,12 @@ export function Footer() {
           </div>
         </div>
 
-        <div className="mt-12 space-y-2 border-t border-white/15 pt-8 text-sm text-white/55">
+        <div className="mt-12 space-y-2 border-t border-[#f7f1e6]/15 pt-8 text-sm text-[#f7f1e6]/5">
           <p>
             © {year} {restaurant.businessName}. All rights reserved.
           </p>
           <p>Concept website created by Oscar Aguilar</p>
-          <p className="text-xs text-white/40">
+          <p className="text-xs text-[#f7f1e6]/35">
             Independent concept design for demonstration purposes. This is not
             the restaurant&apos;s official website.
           </p>

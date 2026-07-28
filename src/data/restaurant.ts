@@ -13,6 +13,8 @@ export interface MenuItem {
   name: string;
   description: string;
   price: number;
+  /** Optional unit label shown with price, e.g. "/ lb" */
+  unit?: string;
   featured?: boolean;
   image?: string;
 }
@@ -86,199 +88,222 @@ export interface RestaurantData {
 }
 
 export const restaurant: RestaurantData = {
-  businessName: "Mesa Verde Kitchen",
-  shortName: "Mesa Verde",
-  tagline: "Bold plates. Warm tables. Pure Bakersfield.",
+  businessName: "Black Hickory BBQ",
+  shortName: "Black Hickory",
+  tagline: "Post oak smoke. Texas tradition. Meat that speaks for itself.",
   description:
-    "Seasonal California cooking with Central Valley soul — shareable starters, flame-kissed mains, and a neighborhood energy that feels like home.",
+    "Brisket, ribs, and sausage smoked low and slow over Texas post oak — served with classic sides, cold drinks, and the kind of hospitality that keeps folks coming back.",
   aboutStory:
-    "Mesa Verde Kitchen started as a small neighborhood spot with a simple idea: serve honest food that brings people together. From weekend brunch tables to weekday takeout, we cook with care for the families, workers, and neighbors who make Bakersfield feel like home. Every plate is meant to be shared — and remembered.",
-  trustStatement: "Locally owned in Bakersfield",
-  phone: "6615550142",
-  formattedPhone: "(661) 555-0142",
-  email: "hello@mesaverdekitchen.demo",
-  address: "1820 Chester Avenue",
-  city: "Bakersfield",
-  state: "CA",
-  zipCode: "93301",
+    "Black Hickory BBQ was built on one belief: great barbecue takes time. We trim by hand, season with a house rub, and let post oak do the talking overnight. What started as a backyard cooker became a smokehouse for pitmasters, families, and road-trippers who know the difference between fast meat and real Texas barbecue.",
+  trustStatement: "Pit-smoked daily in the Texas tradition",
+  phone: "5125550199",
+  formattedPhone: "(512) 555-0199",
+  email: "smoke@blackhickorybbq.demo",
+  address: "814 East Cesar Chavez Street",
+  city: "Austin",
+  state: "TX",
+  zipCode: "78702",
   directionsUrl:
-    "https://www.google.com/maps/search/?api=1&query=1820+Chester+Avenue+Bakersfield+CA+93301",
+    "https://www.google.com/maps/search/?api=1&query=814+East+Cesar+Chavez+Street+Austin+TX+78702",
   orderUrl: "https://www.toasttab.com/",
   instagramUrl: "https://www.instagram.com/",
   facebookUrl: "https://www.facebook.com/",
-  primaryColor: "#0F1412",
-  accentColor: "#FF5A36",
+  primaryColor: "#1A1210",
+  accentColor: "#C45C26",
   hours: [
-    { day: "Monday", open: "11:00 AM", close: "9:00 PM" },
-    { day: "Tuesday", open: "11:00 AM", close: "9:00 PM" },
-    { day: "Wednesday", open: "11:00 AM", close: "9:00 PM" },
+    { day: "Monday", open: "11:00 AM", close: "8:00 PM" },
+    { day: "Tuesday", open: "11:00 AM", close: "8:00 PM" },
+    { day: "Wednesday", open: "11:00 AM", close: "8:00 PM" },
     { day: "Thursday", open: "11:00 AM", close: "9:00 PM" },
-    { day: "Friday", open: "11:00 AM", close: "10:00 PM" },
-    { day: "Saturday", open: "10:00 AM", close: "10:00 PM" },
-    { day: "Sunday", open: "10:00 AM", close: "8:00 PM" },
+    { day: "Friday", open: "11:00 AM", close: "9:00 PM" },
+    { day: "Saturday", open: "11:00 AM", close: "9:00 PM" },
+    { day: "Sunday", open: "11:00 AM", close: "7:00 PM" },
   ],
   menu: [
     {
-      id: "starters",
-      name: "Starters",
-      description: "Shareable bites to start the table",
+      id: "by-the-pound",
+      name: "By the Pound",
+      description: "Sliced to order. Sold till it's gone.",
       items: [
         {
-          id: "roasted-pepper-hummus",
-          name: "Roasted Pepper Hummus",
+          id: "brisket",
+          name: "Beef Brisket",
           description:
-            "House hummus, warm pita, olive oil, and pickled vegetables",
-          price: 11,
+            "12-hour post oak smoke, pepper crust, juicy fatty or lean",
+          price: 32,
+          unit: "/ lb",
           featured: true,
           image:
-            "https://images.unsplash.com/photo-1577805947697-89e18249d767?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=1200&q=80",
         },
         {
-          id: "crispy-calamari",
-          name: "Crispy Calamari",
-          description: "Lightly fried, citrus aioli, chili flake",
-          price: 14,
-          image:
-            "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=1200&q=80",
-        },
-        {
-          id: "street-corn-cups",
-          name: "Street Corn Cups",
-          description: "Charred corn, cotija, lime crema, cilantro",
-          price: 10,
-          image:
-            "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=1200&q=80",
-        },
-      ],
-    },
-    {
-      id: "salads",
-      name: "Salads & Bowls",
-      description: "Bright, fresh, and filling",
-      items: [
-        {
-          id: "valley-chopped",
-          name: "Valley Chopped Salad",
-          description:
-            "Romaine, cucumber, tomato, avocado, chickpeas, herb vinaigrette",
-          price: 15,
-          image:
-            "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80",
-        },
-        {
-          id: "citrus-chicken-bowl",
-          name: "Citrus Chicken Bowl",
-          description:
-            "Grilled chicken, quinoa, greens, orange segments, toasted almonds",
-          price: 17,
-          featured: true,
-          image:
-            "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80",
-        },
-        {
-          id: "caesar",
-          name: "Classic Caesar",
-          description: "Romaine, parmesan, garlic croutons, anchovy dressing",
-          price: 13,
-          image:
-            "https://images.unsplash.com/photo-1550304943-4f24f54ddde9?auto=format&fit=crop&w=1200&q=80",
-        },
-      ],
-    },
-    {
-      id: "mains",
-      name: "Mains",
-      description: "Comfort plates from the kitchen",
-      items: [
-        {
-          id: "mesa-burger",
-          name: "Mesa Burger",
-          description:
-            "Angus beef, aged cheddar, caramelized onion, house sauce, fries",
-          price: 18,
-          featured: true,
-          image:
-            "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=80",
-        },
-        {
-          id: "braised-short-rib",
-          name: "Braised Short Rib",
-          description: "Slow-cooked short rib, mashed potatoes, roasted carrots",
+          id: "pork-ribs",
+          name: "Pork Spare Ribs",
+          description: "St. Louis cut, dry-rubbed, fall-off-the-bone tender",
           price: 28,
+          unit: "/ lb",
+          featured: true,
           image:
             "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80",
         },
         {
-          id: "chile-verde-enchiladas",
-          name: "Chile Verde Enchiladas",
-          description:
-            "Corn tortillas, pork chile verde, crema, pickled onion, rice",
-          price: 19,
+          id: "house-sausage",
+          name: "House Sausage",
+          description: "Coarse-ground beef & pork links with jalapeño snap",
+          price: 22,
+          unit: "/ lb",
           image:
-            "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&w=1200&q=80",
         },
         {
-          id: "market-catch",
-          name: "Market Catch",
-          description:
-            "Pan-seared fish, seasonal vegetables, lemon butter, herbs",
-          price: 26,
+          id: "pulled-pork",
+          name: "Pulled Pork",
+          description: "Shoulder smoked overnight, chopped or pulled",
+          price: 24,
+          unit: "/ lb",
           image:
-            "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=900&q=80",
+        },
+      ],
+    },
+    {
+      id: "plates",
+      name: "Plates & Combos",
+      description: "Two sides and pickles with every plate",
+      items: [
+        {
+          id: "two-meat-plate",
+          name: "Two-Meat Plate",
+          description: "Choose any two smoked meats with two classic sides",
+          price: 22,
+          featured: true,
+          image:
+            "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=80",
+        },
+        {
+          id: "three-meat-plate",
+          name: "Three-Meat Plate",
+          description: "Pitmaster's sampler — brisket, ribs, and sausage",
+          price: 28,
+          image:
+            "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=1200&q=80",
+        },
+        {
+          id: "brisket-sandwich",
+          name: "Brisket Sandwich",
+          description: "Thick-cut brisket on a toasted bun, onion, pickles",
+          price: 16,
+          image:
+            "https://images.unsplash.com/photo-1613514785940-daed07799d9b?auto=format&fit=crop&w=1200&q=80",
+        },
+        {
+          id: "burnt-ends",
+          name: "Burnt Ends Bowl",
+          description: "Chopped bark-heavy ends over beans or mac",
+          price: 18,
+          image:
+            "https://images.unsplash.com/photo-1432139509613-5c621538fa88?auto=format&fit=crop&w=1200&q=80",
+        },
+      ],
+    },
+    {
+      id: "sides",
+      name: "Sides",
+      description: "The supporting cast that steals the show",
+      items: [
+        {
+          id: "mac-cheese",
+          name: "Smoked Mac & Cheese",
+          description: "Three-cheese blend finished in the smoker",
+          price: 6,
+          image:
+            "https://images.unsplash.com/photo-1543339494-b4cd4f7ba876?auto=format&fit=crop&w=1200&q=80",
+        },
+        {
+          id: "potato-salad",
+          name: "Potato Salad",
+          description: "Classic mustard-style, celery, egg",
+          price: 5,
+          image:
+            "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=1200&q=80",
+        },
+        {
+          id: "coleslaw",
+          name: "House Slaw",
+          description: "Crisp cabbage, light vinegar dressing",
+          price: 5,
+          image:
+            "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=1200&q=80",
+        },
+        {
+          id: "pinto-beans",
+          name: "Pinto Beans",
+          description: "Slow pot beans with smoked meat trim",
+          price: 5,
+          image:
+            "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1200&q=80",
+        },
+        {
+          id: "cornbread",
+          name: "Cast-Iron Cornbread",
+          description: "Honey butter on the side",
+          price: 5,
+          image:
+            "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&w=1200&q=80",
         },
       ],
     },
     {
       id: "desserts",
-      name: "Desserts",
-      description: "A sweet finish",
+      name: "Sweets",
+      description: "Worth saving room",
       items: [
         {
-          id: "churro-bites",
-          name: "Churro Bites",
-          description: "Cinnamon sugar, warm chocolate sauce",
-          price: 9,
+          id: "pecan-pie",
+          name: "Pecan Pie",
+          description: "Texas pecans, flaky crust, whipped cream",
+          price: 8,
           image:
-            "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?auto=format&fit=crop&w=1200&q=80",
         },
         {
-          id: "olive-oil-cake",
-          name: "Olive Oil Cake",
-          description: "Citrus glaze, whipped cream, seasonal berries",
-          price: 10,
+          id: "banana-pudding",
+          name: "Banana Pudding",
+          description: "Vanilla wafers, fresh banana, whipped cream",
+          price: 7,
           image:
-            "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1200&q=80",
         },
       ],
     },
     {
       id: "drinks",
       name: "Drinks",
-      description: "House refreshments",
+      description: "Ice-cold and ready",
       items: [
         {
-          id: "agua-fresca",
-          name: "Agua Fresca",
-          description: "Rotating seasonal fruit, lightly sweetened",
-          price: 5,
+          id: "sweet-tea",
+          name: "Sweet Tea",
+          description: "Bottomless, Texas-sweet",
+          price: 3,
           image:
-            "https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1556679343-c7306c197cfe?auto=format&fit=crop&w=1200&q=80",
         },
         {
-          id: "house-lemonade",
-          name: "House Lemonade",
-          description: "Fresh-squeezed with a hint of mint",
-          price: 5,
+          id: "lemonade",
+          name: "Fresh Lemonade",
+          description: "House-squeezed, lightly sweetened",
+          price: 4,
           image:
             "https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=1200&q=80",
         },
         {
-          id: "cold-brew",
-          name: "Cold Brew Coffee",
-          description: "Locally roasted, served over ice",
-          price: 5,
+          id: "soda",
+          name: "Fountain Sodas",
+          description: "Coke, Diet Coke, Dr Pepper, Sprite",
+          price: 3,
           image:
-            "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=1200&q=80",
+            "https://images.unsplash.com/photo-1581006852262-e4307cf6283a?auto=format&fit=crop&w=1200&q=80",
         },
       ],
     },
@@ -287,64 +312,64 @@ export const restaurant: RestaurantData = {
     {
       id: "t1",
       quote:
-        "The kind of place you take visiting family — generous portions, friendly service, and food that tastes homemade.",
-      author: "Elena R.",
-      detail: "Sample review · Bakersfield",
+        "The brisket bark is unreal — peppery, smoky, and sliced just right. This is destination barbecue.",
+      author: "James H.",
+      detail: "Sample review · Austin",
       isSample: true,
     },
     {
       id: "t2",
       quote:
-        "We ordered catering for an office lunch and everything arrived hot and beautifully packed. Will use again.",
-      author: "Marcus T.",
-      detail: "Sample review · Downtown",
+        "Catered our company cookout with trays of ribs and sausage. Everything arrived hot and disappeared fast.",
+      author: "Maria L.",
+      detail: "Sample review · East Austin",
       isSample: true,
     },
     {
       id: "t3",
       quote:
-        "Great patio energy on weekends. The Mesa Burger and street corn cups are our regular order.",
-      author: "Priya S.",
-      detail: "Sample review · Southwest",
+        "Feels like a proper Texas smokehouse — butcher paper, cold sweet tea, and meat that doesn't need sauce.",
+      author: "Derek P.",
+      detail: "Sample review · Round Rock",
       isSample: true,
     },
   ],
   catering: {
-    headline: "Catering that shows up looking incredible",
+    headline: "Smokehouse catering for the whole crew",
     description:
-      "From office lunches to family celebrations, Mesa Verde Kitchen brings familiar flavors and easy setup to your event across Bakersfield.",
+      "From backyard cookouts to corporate spreads, Black Hickory packs trays of brisket, ribs, sausage, and sides ready to feed a hungry Texas crowd.",
     benefits: [
-      "Family-style trays and individually packed options",
-      "Custom menus for dietary needs when given notice",
-      "Reliable pickup or drop-off within the metro area",
-      "Friendly coordination for birthdays, offices, and community events",
+      "By-the-pound trays with butcher paper presentation",
+      "Sauce, pickles, onions, and bread included",
+      "Pickup or drop-off across the Austin metro",
+      "Easy ordering for weddings, offices, and game days",
     ],
-    minGuests: "Ideal for 10–100 guests",
-    leadTime: "48-hour notice preferred",
+    minGuests: "Ideal for 15–150 guests",
+    leadTime: "72-hour notice preferred",
   },
   galleryImages: [
-    "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1478144592103-25e218a04891?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1600891964599-f61ba0a25d0b?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=1200&q=80",
   ],
   heroImage:
-    "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=2000&q=80",
+    "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=2000&q=80",
   aboutImage:
-    "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80",
+    "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1400&q=80",
   locationImage:
-    "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=80",
+    "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1600&q=80",
   cateringImage:
-    "https://images.unsplash.com/photo-1555244162-803435f59416?auto=format&fit=crop&w=1600&q=80",
+    "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1600&q=80",
   seo: {
-    title: "Mesa Verde Kitchen | Neighborhood Restaurant in Bakersfield, CA",
+    title: "Black Hickory BBQ | Texas Smokehouse in Austin",
     description:
-      "Mesa Verde Kitchen serves welcoming neighborhood cooking in Bakersfield. View the menu, hours, catering options, and order online.",
-    ogTitle: "Mesa Verde Kitchen — Bakersfield",
+      "Black Hickory BBQ serves Texas-style brisket, ribs, and sausage smoked over post oak in Austin. View the menu, hours, catering, and order online.",
+    ogTitle: "Black Hickory BBQ — Austin Smokehouse",
     ogDescription:
-      "Locally owned restaurant in Bakersfield. Menu, hours, directions, catering, and online ordering.",
+      "Post oak smoked brisket, ribs, and sausage. Menu, hours, directions, and catering.",
   },
 };
 
@@ -355,12 +380,13 @@ export function getFeaturedItems(data: RestaurantData = restaurant): MenuItem[] 
   );
 }
 
-export function formatPrice(price: number): string {
-  return new Intl.NumberFormat("en-US", {
+export function formatPrice(price: number, unit?: string): string {
+  const formatted = new Intl.NumberFormat("en-US", {
     style: "currency",
     currency: "USD",
     minimumFractionDigits: price % 1 === 0 ? 0 : 2,
   }).format(price);
+  return unit ? `${formatted}${unit}` : formatted;
 }
 
 export function getFullAddress(data: RestaurantData = restaurant): string {

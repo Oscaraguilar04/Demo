@@ -11,25 +11,25 @@ export function Gallery() {
       aria-labelledby="gallery-heading"
     >
       <div className="section-shell mb-12 text-center">
-        <p className="eyebrow">A look inside</p>
+        <p className="eyebrow">Inside the smokehouse</p>
         <h2
           id="gallery-heading"
-          className="mt-3 font-display text-4xl font-bold tracking-tight text-[color:var(--brand-primary)] sm:text-5xl"
+          className="mt-3 font-display text-4xl font-bold tracking-[0.03em] uppercase text-[color:var(--brand-primary)] sm:text-5xl"
         >
-          Taste the atmosphere
+          Fire, bark &amp; butcher paper
         </h2>
       </div>
 
       <div className="section-shell-wide">
-        <ul className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4 lg:gap-5">
+        <ul className="grid grid-cols-2 gap-3 md:grid-cols-3 md:gap-4">
           {images.map((src, index) => (
             <li
-              key={src}
-              className={`group relative overflow-hidden rounded-2xl md:rounded-3xl ${
+              key={`${src}-${index}`}
+              className={`group relative overflow-hidden rounded-sm ${
                 index === 0 || index === 3
                   ? "aspect-[4/5] sm:aspect-[3/4]"
                   : "aspect-square"
-              } ${index === 2 ? "md:col-span-1" : ""}`}
+              }`}
             >
               <Image
                 src={src}
@@ -38,7 +38,7 @@ export function Gallery() {
                 className="img-zoom object-cover"
                 sizes="(max-width: 768px) 50vw, 33vw"
               />
-              <div className="absolute inset-0 bg-black/0 transition duration-500 group-hover:bg-black/20" />
+              <div className="absolute inset-0 bg-black/0 transition duration-500 group-hover:bg-black/25" />
             </li>
           ))}
         </ul>

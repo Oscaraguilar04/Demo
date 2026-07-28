@@ -1,17 +1,17 @@
 import type { CSSProperties, ReactNode } from "react";
 import type { Metadata } from "next";
-import { Manrope, Syne } from "next/font/google";
+import { Oswald, Source_Sans_3 } from "next/font/google";
 import { restaurant } from "@/data/restaurant";
 import "./globals.css";
 
-const display = Syne({
+const display = Oswald({
   variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
-  weight: ["500", "600", "700", "800"],
+  weight: ["400", "500", "600", "700"],
 });
 
-const body = Manrope({
+const body = Source_Sans_3({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
@@ -40,7 +40,7 @@ export default function RootLayout({
       className={`${display.variable} ${body.variable} h-full antialiased`}
     >
       <body
-        className="min-h-full"
+        className="paper-grain min-h-full"
         style={
           {
             "--brand-primary": restaurant.primaryColor,

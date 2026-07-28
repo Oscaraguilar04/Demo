@@ -1,6 +1,6 @@
-# Restaurant Website Template
+# Texas BBQ Restaurant Website Template
 
-A polished, reusable Next.js template for independent restaurants in Bakersfield, California. Built for personalized website demonstrations — edit one data file to rebrand the entire site.
+A Pinterest-polished Next.js template styled as a Texas smokehouse. Built for personalized restaurant demos — edit one data file to rebrand the entire site.
 
 ## Stack
 
@@ -12,7 +12,7 @@ A polished, reusable Next.js template for independent restaurants in Bakersfield
 
 ## Customize a restaurant
 
-Edit **`src/data/restaurant.ts`** — business name, contact info, colors, hours, menu, testimonials, catering copy, image paths, and SEO metadata.
+Edit **`src/data/restaurant.ts`** — business name, contact info, colors, hours, BBQ menu, testimonials, catering copy, image URLs, and SEO metadata.
 
 ## Scripts
 

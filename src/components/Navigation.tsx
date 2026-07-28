@@ -35,15 +35,15 @@ export function Navigation() {
     <header
       className={`fixed inset-x-0 top-0 z-40 transition-all duration-300 ${
         scrolled || open
-          ? "border-b border-[color:var(--line)] bg-white/90 shadow-[0_8px_30px_rgba(15,20,18,0.06)] backdrop-blur-xl"
+          ? "border-b border-[color:var(--line)] bg-[#f7f1e6]/95 shadow-[0_8px_30px_rgba(26,18,16,0.1)] backdrop-blur-xl"
           : "border-b border-transparent bg-transparent"
       }`}
     >
       <div
-        className={`text-center text-[10px] tracking-[0.18em] uppercase sm:text-[11px] ${
+        className={`text-center text-[10px] font-semibold uppercase tracking-[0.22em] sm:text-[11px] ${
           overHero
-            ? "bg-black/35 text-white/85 backdrop-blur-sm"
-            : "bg-[color:var(--brand-primary)] text-white/85"
+            ? "bg-black/40 text-[#f7f1e6]/85 backdrop-blur-sm"
+            : "bg-[color:var(--brand-primary)] text-[#f7f1e6]/85"
         }`}
         role="note"
       >
@@ -59,8 +59,8 @@ export function Navigation() {
       >
         <a
           href="#top"
-          className={`font-display text-xl font-bold tracking-tight sm:text-2xl ${
-            overHero ? "text-white" : "text-[color:var(--brand-primary)]"
+          className={`font-display text-xl font-bold tracking-[0.06em] uppercase sm:text-2xl ${
+            overHero ? "text-[#f7f1e6]" : "text-[color:var(--brand-primary)]"
           }`}
         >
           {restaurant.shortName}
@@ -71,9 +71,9 @@ export function Navigation() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className={`text-sm font-medium transition ${
+                className={`text-xs font-bold uppercase tracking-[0.18em] transition ${
                   overHero
-                    ? "text-white/80 hover:text-white"
+                    ? "text-[#f7f1e6]/80 hover:text-[#f7f1e6]"
                     : "text-[color:var(--ink-muted)] hover:text-[color:var(--brand-primary)]"
                 }`}
               >
@@ -96,10 +96,10 @@ export function Navigation() {
 
         <button
           type="button"
-          className={`inline-flex h-11 w-11 items-center justify-center rounded-full border backdrop-blur-sm md:hidden ${
+          className={`inline-flex h-11 w-11 items-center justify-center rounded-sm border backdrop-blur-sm md:hidden ${
             overHero
-              ? "border-white/30 bg-white/10 text-white"
-              : "border-[color:var(--line)] bg-white/80 text-[color:var(--brand-primary)]"
+              ? "border-[#f7f1e6]/30 bg-black/25 text-[#f7f1e6]"
+              : "border-[color:var(--line)] bg-[#f7f1e6]/80 text-[color:var(--brand-primary)]"
           }`}
           aria-expanded={open}
           aria-controls="mobile-nav"
@@ -123,7 +123,7 @@ export function Navigation() {
 
       <div
         id="mobile-nav"
-        className={`border-t border-[color:var(--line)] bg-white md:hidden ${
+        className={`border-t border-[color:var(--line)] bg-[#f7f1e6] md:hidden ${
           open ? "block" : "hidden"
         }`}
       >
@@ -132,7 +132,7 @@ export function Navigation() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="block rounded-xl px-3 py-3 text-base font-medium text-[color:var(--brand-primary)] hover:bg-[color:var(--surface)]"
+                className="block rounded-sm px-3 py-3 text-sm font-bold uppercase tracking-[0.14em] text-[color:var(--brand-primary)] hover:bg-white/60"
                 onClick={() => setOpen(false)}
               >
                 {link.label}

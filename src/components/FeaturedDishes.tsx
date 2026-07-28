@@ -14,24 +14,24 @@ export function FeaturedDishes() {
       <div className="section-shell">
         <div className="flex flex-col gap-6 sm:flex-row sm:items-end sm:justify-between">
           <div className="max-w-xl">
-            <p className="eyebrow">Guest favorites</p>
+            <p className="eyebrow">From the pit</p>
             <h2
               id="featured-heading"
-              className="mt-3 font-display text-4xl font-bold tracking-tight text-[color:var(--brand-primary)] sm:text-5xl"
+              className="mt-3 font-display text-4xl font-bold tracking-[0.03em] uppercase text-[color:var(--brand-primary)] sm:text-5xl"
             >
-              Plates worth the drive
+              Smokehouse signatures
             </h2>
           </div>
           <p className="max-w-sm text-base leading-relaxed text-[color:var(--ink-muted)]">
-            Signature dishes our regulars order again and again — photographed
-            fresh and ready for your table.
+            The cuts people drive across town for — barky brisket, sticky ribs,
+            and plates piled high.
           </p>
         </div>
 
-        <ul className="mt-14 grid gap-7 sm:grid-cols-2 lg:grid-cols-3">
+        <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {featured.map((item) => (
             <li key={item.id} className="group">
-              <article className="overflow-hidden rounded-[1.75rem] bg-white shadow-[var(--shadow-soft)] transition duration-500 hover:-translate-y-1.5 hover:shadow-[var(--shadow-lift)]">
+              <article className="overflow-hidden rounded-[var(--radius-card)] border border-[color:var(--line)] bg-[color:var(--surface-elevated)] shadow-[var(--shadow-soft)] transition duration-500 hover:-translate-y-1.5 hover:shadow-[var(--shadow-lift)]">
                 <div className="relative aspect-[4/5] overflow-hidden">
                   {item.image ? (
                     <Image
@@ -42,13 +42,13 @@ export function FeaturedDishes() {
                       sizes="(max-width: 1024px) 100vw, 33vw"
                     />
                   ) : (
-                    <GradientMedia className="h-full w-full" />
+                    <GradientMedia className="h-full w-full" variant="dusk" />
                   )}
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent p-5 pt-20">
-                    <p className="text-sm font-bold text-[color:var(--brand-accent)]">
-                      {formatPrice(item.price)}
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-5 pt-24">
+                    <p className="text-sm font-bold tracking-wide text-[color:var(--brand-accent)]">
+                      {formatPrice(item.price, item.unit)}
                     </p>
-                    <h3 className="mt-1 font-display text-2xl font-bold text-white">
+                    <h3 className="mt-1 font-display text-2xl font-bold tracking-[0.04em] uppercase text-[#f7f1e6]">
                       {item.name}
                     </h3>
                   </div>

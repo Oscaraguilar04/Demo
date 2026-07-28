@@ -6,7 +6,7 @@ import {
 export function MobileActionBar() {
   return (
     <div
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-[color:var(--line)] bg-white/95 shadow-[0_-8px_30px_rgba(15,20,18,0.08)] backdrop-blur-xl md:hidden"
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-[color:var(--line)] bg-[#f7f1e6]/95 shadow-[0_-8px_30px_rgba(26,18,16,0.12)] backdrop-blur-xl md:hidden"
       style={{
         paddingBottom: "env(safe-area-inset-bottom, 0px)",
       }}

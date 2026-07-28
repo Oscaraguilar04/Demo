@@ -10,15 +10,15 @@ export function LocationHours() {
     >
       <div className="section-shell grid gap-10 lg:grid-cols-2 lg:gap-14">
         <div>
-          <p className="eyebrow">Visit us</p>
+          <p className="eyebrow">Pull up a stool</p>
           <h2
             id="hours-heading"
-            className="mt-3 font-display text-4xl font-bold tracking-tight text-[color:var(--brand-primary)] sm:text-5xl"
+            className="mt-3 font-display text-4xl font-bold tracking-[0.03em] uppercase text-[color:var(--brand-primary)] sm:text-5xl"
           >
-            Find your table
+            Find the smokehouse
           </h2>
           <address className="mt-7 not-italic">
-            <p className="text-xl font-bold text-[color:var(--ink)]">
+            <p className="font-display text-xl font-bold tracking-[0.04em] uppercase text-[color:var(--ink)]">
               {restaurant.businessName}
             </p>
             <p className="mt-2 text-base leading-relaxed text-[color:var(--ink-muted)] sm:text-lg">
@@ -43,7 +43,7 @@ export function LocationHours() {
             Get Directions
           </a>
 
-          <h3 className="mt-12 text-[11px] font-bold uppercase tracking-[0.22em] text-[color:var(--brand-accent)]">
+          <h3 className="mt-12 text-[11px] font-bold uppercase tracking-[0.28em] text-[color:var(--brand-accent)]">
             Weekly hours
           </h3>
           <ul className="mt-4 divide-y divide-[color:var(--line)] border-y border-[color:var(--line)]">
@@ -63,20 +63,22 @@ export function LocationHours() {
           </ul>
         </div>
 
-        <div className="relative min-h-[360px] overflow-hidden rounded-[2rem] shadow-[var(--shadow-lift)] sm:min-h-[480px]">
+        <div className="relative min-h-[360px] overflow-hidden rounded-sm shadow-[var(--shadow-lift)] sm:min-h-[480px]">
           <Image
             src={restaurant.locationImage}
-            alt={`Exterior vibe near ${getFullAddress()}`}
+            alt={`Smokehouse vibe near ${getFullAddress()}`}
             fill
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-8">
-            <p className="font-display text-2xl font-bold">Come hungry</p>
-            <p className="mt-2 max-w-sm text-sm text-white/80">
-              Open daily in downtown Bakersfield — patio seating when the
-              weather&apos;s right.
+          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 p-6 text-[#f7f1e6] sm:p-8">
+            <p className="font-display text-2xl font-bold tracking-[0.04em] uppercase">
+              Come hungry
+            </p>
+            <p className="mt-2 max-w-sm text-sm text-[#f7f1e6]/8">
+              Open daily in Austin — when you smell post oak on the block,
+              you&apos;re close.
             </p>
           </div>
         </div>
