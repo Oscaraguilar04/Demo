@@ -24,38 +24,38 @@ export function Catering() {
               className="object-cover"
               sizes="100vw"
             />
-            <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(20,12,10,0.94)_0%,rgba(20,12,10,0.8)_55%,rgba(20,12,10,0.55)_100%)]" />
+            <div className="absolute inset-0 bg-[linear-gradient(120deg,rgba(12,8,6,0.94)_0%,rgba(12,8,6,0.88)_55%,rgba(12,8,6,0.78)_100%)]" />
           </div>
 
-          <div className="relative grid gap-10 px-6 py-14 text-[#f7f1e6] sm:px-10 sm:py-16 lg:grid-cols-[1.25fr_0.75fr] lg:items-end lg:px-14">
+          <div className="relative grid gap-10 px-6 py-14 text-white sm:px-10 sm:py-16 lg:grid-cols-[1.25fr_0.75fr] lg:items-end lg:px-14">
             <div>
-              <p className="text-[11px] font-bold uppercase tracking-[0.32em] text-[color:var(--brand-accent)]">
+              <p className="text-[11px] font-bold uppercase tracking-[0.32em] text-[#ffb089]">
                 Catering
               </p>
               <h2
                 id="catering-heading"
-                className="mt-3 font-display text-3xl font-bold tracking-[0.03em] uppercase sm:text-4xl lg:text-5xl"
+                className="mt-3 font-display text-3xl font-bold tracking-[0.03em] text-white uppercase sm:text-4xl lg:text-5xl"
               >
                 {catering.headline}
               </h2>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-[#f7f1e6]/80 sm:text-lg">
+              <p className="mt-5 max-w-2xl text-base leading-relaxed text-[color:var(--text-on-dark-soft)] sm:text-lg">
                 {catering.description}
               </p>
               <ul className="mt-8 grid gap-3 sm:grid-cols-2">
                 {catering.benefits.map((benefit) => (
                   <li
                     key={benefit}
-                    className="flex gap-3 text-sm leading-relaxed text-[#f7f1e6]/90"
+                    className="flex gap-3 text-sm leading-relaxed font-medium text-white"
                   >
                     <span
                       aria-hidden="true"
-                      className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-[color:var(--brand-accent)]"
+                      className="mt-1.5 h-1.5 w-1.5 shrink-0 bg-[#ffb089]"
                     />
                     <span>{benefit}</span>
                   </li>
                 ))}
               </ul>
-              <div className="mt-6 flex flex-wrap gap-4 text-sm text-[#f7f1e6]/6">
+              <div className="mt-6 flex flex-wrap gap-4 text-sm font-medium text-[color:var(--text-on-dark-soft)]">
                 {catering.minGuests ? <p>{catering.minGuests}</p> : null}
                 {catering.leadTime ? <p>{catering.leadTime}</p> : null}
               </div>
@@ -70,7 +70,7 @@ export function Catering() {
               </a>
               <a
                 href={getMailtoHref()}
-                className="inline-flex w-full items-center justify-center gap-2 rounded-sm border border-[#f7f1e6]/30 bg-[#f7f1e6]/10 px-7 py-3.5 text-xs font-bold uppercase tracking-[0.18em] text-[#f7f1e6] backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:bg-[#f7f1e6]/20 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[color:var(--brand-accent)] sm:flex-1 lg:w-full"
+                className="inline-flex w-full items-center justify-center gap-2 rounded-sm border-2 border-white bg-black/40 px-7 py-3.5 text-xs font-bold uppercase tracking-[0.18em] text-white backdrop-blur-md transition duration-300 hover:-translate-y-0.5 hover:bg-black/60 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[color:var(--brand-accent)] sm:flex-1 lg:w-full"
               >
                 Email for catering
               </a>

@@ -19,11 +19,11 @@ export function About() {
               sizes="(max-width: 1024px) 100vw, 60vw"
             />
           </div>
-          <div className="absolute -bottom-6 -right-2 hidden max-w-[240px] border border-[color:var(--line)] bg-[color:var(--brand-accent)] p-5 text-white shadow-[var(--shadow-lift)] sm:block lg:-right-4">
+          <div className="absolute -bottom-6 -right-2 hidden max-w-[240px] border-2 border-[color:var(--ink)] bg-[color:var(--brand-accent)] p-5 text-white shadow-[var(--shadow-lift)] sm:block lg:-right-4">
             <p className="font-display text-2xl font-bold leading-tight tracking-[0.04em] uppercase">
               Low &amp; slow
             </p>
-            <p className="mt-2 text-sm text-white/90">
+            <p className="mt-2 text-sm font-medium text-white">
               {restaurant.trustStatement}
             </p>
           </div>
@@ -33,14 +33,14 @@ export function About() {
           <p className="eyebrow">Our story</p>
           <h2
             id="about-heading"
-            className="mt-3 font-display text-4xl font-bold tracking-[0.03em] uppercase text-[color:var(--brand-primary)] sm:text-5xl"
+            className="mt-3 font-display text-4xl font-bold tracking-[0.03em] text-[color:var(--ink)] uppercase sm:text-5xl"
           >
             Built on post oak &amp; patience
           </h2>
-          <p className="mt-6 text-base leading-relaxed text-[color:var(--ink-muted)] sm:text-lg">
+          <p className="mt-6 text-base leading-relaxed font-medium text-[color:var(--ink-muted)] sm:text-lg">
             {restaurant.aboutStory}
           </p>
-          <p className="mt-5 text-base leading-relaxed text-[color:var(--ink-muted)] sm:text-lg">
+          <p className="mt-5 text-base leading-relaxed font-medium text-[color:var(--ink-muted)] sm:text-lg">
             No shortcuts. No gas assist. Just fire, time, and the Texas
             barbecue tradition — served on butcher paper with pickles, onion,
             and a cold sweet tea.

@@ -2,7 +2,9 @@ import Image from "next/image";
 import { restaurant } from "@/data/restaurant";
 
 export function Gallery() {
-  const images = restaurant.galleryImages;
+  const images = restaurant.galleryImages.filter(Boolean);
+
+  if (images.length === 0) return null;
 
   return (
     <section
@@ -14,7 +16,7 @@ export function Gallery() {
         <p className="eyebrow">Inside the smokehouse</p>
         <h2
           id="gallery-heading"
-          className="mt-3 font-display text-4xl font-bold tracking-[0.03em] uppercase text-[color:var(--brand-primary)] sm:text-5xl"
+          className="mt-3 font-display text-4xl font-bold tracking-[0.03em] text-[color:var(--ink)] uppercase sm:text-5xl"
         >
           Fire, bark &amp; butcher paper
         </h2>

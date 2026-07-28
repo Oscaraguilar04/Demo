@@ -13,21 +13,21 @@ export function LocationHours() {
           <p className="eyebrow">Pull up a stool</p>
           <h2
             id="hours-heading"
-            className="mt-3 font-display text-4xl font-bold tracking-[0.03em] uppercase text-[color:var(--brand-primary)] sm:text-5xl"
+            className="mt-3 font-display text-4xl font-bold tracking-[0.03em] text-[color:var(--ink)] uppercase sm:text-5xl"
           >
             Find the smokehouse
           </h2>
           <address className="mt-7 not-italic">
-            <p className="font-display text-xl font-bold tracking-[0.04em] uppercase text-[color:var(--ink)]">
+            <p className="font-display text-xl font-bold tracking-[0.04em] text-[color:var(--ink)] uppercase">
               {restaurant.businessName}
             </p>
-            <p className="mt-2 text-base leading-relaxed text-[color:var(--ink-muted)] sm:text-lg">
+            <p className="mt-2 text-base leading-relaxed font-medium text-[color:var(--ink-muted)] sm:text-lg">
               {getFullAddress()}
             </p>
             <p className="mt-3">
               <a
                 href={`tel:+1${restaurant.phone}`}
-                className="text-lg font-semibold text-[color:var(--brand-accent)] underline-offset-4 hover:underline"
+                className="text-lg font-bold text-[color:var(--brand-accent)] underline-offset-4 hover:underline"
               >
                 {restaurant.formattedPhone}
               </a>
@@ -52,10 +52,10 @@ export function LocationHours() {
                 key={entry.day}
                 className="flex items-center justify-between gap-4 py-3.5 text-sm sm:text-base"
               >
-                <span className="font-semibold text-[color:var(--ink)]">
+                <span className="font-bold text-[color:var(--ink)]">
                   {entry.day}
                 </span>
-                <span className="tabular-nums text-[color:var(--ink-muted)]">
+                <span className="font-medium tabular-nums text-[color:var(--ink-muted)]">
                   {entry.closed ? "Closed" : `${entry.open} – ${entry.close}`}
                 </span>
               </li>
@@ -71,12 +71,12 @@ export function LocationHours() {
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/75 via-transparent to-transparent" />
-          <div className="absolute inset-x-0 bottom-0 p-6 text-[#f7f1e6] sm:p-8">
+          <div className="absolute inset-0 bg-gradient-to-t from-black via-black/40 to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-8">
             <p className="font-display text-2xl font-bold tracking-[0.04em] uppercase">
               Come hungry
             </p>
-            <p className="mt-2 max-w-sm text-sm text-[#f7f1e6]/8">
+            <p className="mt-2 max-w-sm text-sm font-medium text-[color:var(--text-on-dark-soft)]">
               Open daily in Austin — when you smell post oak on the block,
               you&apos;re close.
             </p>

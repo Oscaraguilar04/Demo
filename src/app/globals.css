@@ -2,17 +2,19 @@
 
 :root {
   --brand-primary: #1a1210;
-  --brand-accent: #c45c26;
+  --brand-accent: #d4632a;
   --brand-primary-soft: #3a2a24;
-  --surface: #efe6d8;
-  --surface-elevated: #f7f1e6;
-  --ink: #1a1210;
-  --ink-muted: #6b5a4e;
-  --line: rgba(26, 18, 16, 0.14);
+  --surface: #f3ebe0;
+  --surface-elevated: #fffaf3;
+  --ink: #140e0c;
+  --ink-muted: #3d2f28;
+  --line: rgba(20, 14, 12, 0.18);
   --shadow-soft: 0 16px 40px rgba(26, 18, 16, 0.12);
   --shadow-lift: 0 28px 55px rgba(26, 18, 16, 0.2);
   --radius-card: 0.75rem;
   --mobile-bar-height: 4.5rem;
+  --text-on-dark: #fff8f0;
+  --text-on-dark-soft: #f3e6d8;
 }
 
 @theme inline {
@@ -45,9 +47,9 @@ html {
 
 body {
   background:
-    radial-gradient(ellipse 80% 50% at 0% 0%, rgba(196, 92, 38, 0.1), transparent 50%),
-    radial-gradient(ellipse 60% 40% at 100% 10%, rgba(26, 18, 16, 0.08), transparent 45%),
-    linear-gradient(180deg, #e8dcc8 0%, var(--surface) 40%, #f3eadc 100%);
+    radial-gradient(ellipse 80% 50% at 0% 0%, rgba(212, 99, 42, 0.08), transparent 50%),
+    radial-gradient(ellipse 60% 40% at 100% 10%, rgba(26, 18, 16, 0.06), transparent 45%),
+    linear-gradient(180deg, #ebe0d0 0%, var(--surface) 40%, #f6efe6 100%);
   color: var(--ink);
   font-family: var(--font-body), system-ui, sans-serif;
   min-height: 100%;
@@ -85,11 +87,11 @@ body {
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center gap-2 rounded-sm bg-[color:var(--brand-primary)] px-7 py-3.5 text-xs font-bold uppercase tracking-[0.18em] text-[#f7f1e6] shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-0.5 hover:bg-[color:var(--brand-primary-soft)] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[color:var(--brand-accent)];
+  @apply inline-flex items-center justify-center gap-2 rounded-sm bg-[color:var(--brand-primary)] px-7 py-3.5 text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--text-on-dark)] shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-0.5 hover:bg-[color:var(--brand-primary-soft)] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[color:var(--brand-accent)];
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center gap-2 rounded-sm border border-[color:var(--line)] bg-[color:var(--surface-elevated)]/80 px-7 py-3.5 text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--brand-primary)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-[color:var(--brand-primary)] hover:bg-white focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[color:var(--brand-accent)];
+  @apply inline-flex items-center justify-center gap-2 rounded-sm border-2 border-[color:var(--brand-primary)] bg-[color:var(--surface-elevated)] px-7 py-3.5 text-xs font-bold uppercase tracking-[0.18em] text-[color:var(--brand-primary)] transition duration-300 hover:-translate-y-0.5 hover:bg-white focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[color:var(--brand-accent)];
 }
 
 .btn-accent {
@@ -137,8 +139,7 @@ body {
   }
 }
 
-/* Subtle butcher-paper grain */
 .paper-grain {
   background-image:
-    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.05'/%3E%3C/svg%3E");
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
 }

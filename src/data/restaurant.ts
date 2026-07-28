@@ -2,10 +2,7 @@
  * Restaurant demonstration data
  * --------------------------
  * Edit this single file to personalize the entire website for a client demo.
- * Swap names, colors, hours, menu items, links, and image paths — no other
- * source files need restaurant-specific content.
- *
- * Images may be local paths (/images/...) or remote URLs (e.g. Unsplash).
+ * Every menu item and gallery slot must include a working matching image URL.
  */
 
 export interface MenuItem {
@@ -16,7 +13,8 @@ export interface MenuItem {
   /** Optional unit label shown with price, e.g. "/ lb" */
   unit?: string;
   featured?: boolean;
-  image?: string;
+  /** Required — items without a matching photo are not shown */
+  image: string;
 }
 
 export interface MenuCategory {
@@ -38,7 +36,6 @@ export interface Testimonial {
   quote: string;
   author: string;
   detail: string;
-  /** Mark demo quotes clearly for clients reviewing the concept site */
   isSample: boolean;
 }
 
@@ -87,6 +84,9 @@ export interface RestaurantData {
   };
 }
 
+const img = (id: string, w = 1200) =>
+  `https://images.unsplash.com/${id}?auto=format&fit=crop&w=${w}&q=80`;
+
 export const restaurant: RestaurantData = {
   businessName: "Black Hickory BBQ",
   shortName: "Black Hickory",
@@ -109,7 +109,7 @@ export const restaurant: RestaurantData = {
   instagramUrl: "https://www.instagram.com/",
   facebookUrl: "https://www.facebook.com/",
   primaryColor: "#1A1210",
-  accentColor: "#C45C26",
+  accentColor: "#D4632A",
   hours: [
     { day: "Monday", open: "11:00 AM", close: "8:00 PM" },
     { day: "Tuesday", open: "11:00 AM", close: "8:00 PM" },
@@ -133,8 +133,7 @@ export const restaurant: RestaurantData = {
           price: 32,
           unit: "/ lb",
           featured: true,
-          image:
-            "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=1200&q=80",
+          image: img("photo-1529193591184-b1d58069ecdd"),
         },
         {
           id: "pork-ribs",
@@ -143,8 +142,7 @@ export const restaurant: RestaurantData = {
           price: 28,
           unit: "/ lb",
           featured: true,
-          image:
-            "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80",
+          image: img("photo-1544025162-d76694265947"),
         },
         {
           id: "house-sausage",
@@ -152,17 +150,7 @@ export const restaurant: RestaurantData = {
           description: "Coarse-ground beef & pork links with jalapeño snap",
           price: 22,
           unit: "/ lb",
-          image:
-            "https://images.unsplash.com/photo-1607623814075-e51df1bdc82f?auto=format&fit=crop&w=1200&q=80",
-        },
-        {
-          id: "pulled-pork",
-          name: "Pulled Pork",
-          description: "Shoulder smoked overnight, chopped or pulled",
-          price: 24,
-          unit: "/ lb",
-          image:
-            "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=900&q=80",
+          image: img("photo-1529042410759-befb1204b468"),
         },
       ],
     },
@@ -172,37 +160,26 @@ export const restaurant: RestaurantData = {
       description: "Two sides and pickles with every plate",
       items: [
         {
-          id: "two-meat-plate",
-          name: "Two-Meat Plate",
-          description: "Choose any two smoked meats with two classic sides",
-          price: 22,
-          featured: true,
-          image:
-            "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=80",
-        },
-        {
           id: "three-meat-plate",
           name: "Three-Meat Plate",
           description: "Pitmaster's sampler — brisket, ribs, and sausage",
           price: 28,
-          image:
-            "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=1200&q=80",
+          featured: true,
+          image: img("photo-1598515214211-89d3c73ae83b"),
         },
         {
           id: "brisket-sandwich",
           name: "Brisket Sandwich",
           description: "Thick-cut brisket on a toasted bun, onion, pickles",
           price: 16,
-          image:
-            "https://images.unsplash.com/photo-1613514785940-daed07799d9b?auto=format&fit=crop&w=1200&q=80",
+          image: img("photo-1613514785940-daed07799d9b"),
         },
         {
-          id: "burnt-ends",
-          name: "Burnt Ends Bowl",
-          description: "Chopped bark-heavy ends over beans or mac",
-          price: 18,
-          image:
-            "https://images.unsplash.com/photo-1432139509613-5c621538fa88?auto=format&fit=crop&w=1200&q=80",
+          id: "smokehouse-platter",
+          name: "Smokehouse Platter",
+          description: "A generous spread of smoked meats ready to share",
+          price: 42,
+          image: img("photo-1551218808-94e220e084d2"),
         },
       ],
     },
@@ -212,44 +189,25 @@ export const restaurant: RestaurantData = {
       description: "The supporting cast that steals the show",
       items: [
         {
-          id: "mac-cheese",
-          name: "Smoked Mac & Cheese",
-          description: "Three-cheese blend finished in the smoker",
+          id: "garden-salad",
+          name: "Garden Salad",
+          description: "Crisp greens, tomato, cucumber, house vinaigrette",
           price: 6,
-          image:
-            "https://images.unsplash.com/photo-1543339494-b4cd4f7ba876?auto=format&fit=crop&w=1200&q=80",
-        },
-        {
-          id: "potato-salad",
-          name: "Potato Salad",
-          description: "Classic mustard-style, celery, egg",
-          price: 5,
-          image:
-            "https://images.unsplash.com/photo-1563379926898-05f4575a45d8?auto=format&fit=crop&w=1200&q=80",
-        },
-        {
-          id: "coleslaw",
-          name: "House Slaw",
-          description: "Crisp cabbage, light vinegar dressing",
-          price: 5,
-          image:
-            "https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?auto=format&fit=crop&w=1200&q=80",
+          image: img("photo-1512621776951-a57141f2eefd"),
         },
         {
           id: "pinto-beans",
           name: "Pinto Beans",
           description: "Slow pot beans with smoked meat trim",
           price: 5,
-          image:
-            "https://images.unsplash.com/photo-1547592166-23ac45744acd?auto=format&fit=crop&w=1200&q=80",
+          image: img("photo-1547592166-23ac45744acd"),
         },
         {
           id: "cornbread",
           name: "Cast-Iron Cornbread",
           description: "Honey butter on the side",
           price: 5,
-          image:
-            "https://images.unsplash.com/photo-1517677208171-0bc6725a3e60?auto=format&fit=crop&w=1200&q=80",
+          image: img("photo-1517677208171-0bc6725a3e60"),
         },
       ],
     },
@@ -263,16 +221,14 @@ export const restaurant: RestaurantData = {
           name: "Pecan Pie",
           description: "Texas pecans, flaky crust, whipped cream",
           price: 8,
-          image:
-            "https://images.unsplash.com/photo-1464305795204-6f5bbfc7fb81?auto=format&fit=crop&w=1200&q=80",
+          image: img("photo-1464305795204-6f5bbfc7fb81"),
         },
         {
           id: "banana-pudding",
           name: "Banana Pudding",
           description: "Vanilla wafers, fresh banana, whipped cream",
           price: 7,
-          image:
-            "https://images.unsplash.com/photo-1488477181946-6428a0291777?auto=format&fit=crop&w=1200&q=80",
+          image: img("photo-1488477181946-6428a0291777"),
         },
       ],
     },
@@ -282,28 +238,25 @@ export const restaurant: RestaurantData = {
       description: "Ice-cold and ready",
       items: [
         {
-          id: "sweet-tea",
-          name: "Sweet Tea",
-          description: "Bottomless, Texas-sweet",
-          price: 3,
-          image:
-            "https://images.unsplash.com/photo-1556679343-c7306c197cfe?auto=format&fit=crop&w=1200&q=80",
-        },
-        {
           id: "lemonade",
           name: "Fresh Lemonade",
           description: "House-squeezed, lightly sweetened",
           price: 4,
-          image:
-            "https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=1200&q=80",
+          image: img("photo-1621263764928-df1444c5e859"),
+        },
+        {
+          id: "citrus-cooler",
+          name: "Citrus Cooler",
+          description: "Fresh citrus over ice",
+          price: 4,
+          image: img("photo-1497534446932-c925b458314e"),
         },
         {
           id: "soda",
           name: "Fountain Sodas",
           description: "Coke, Diet Coke, Dr Pepper, Sprite",
           price: 3,
-          image:
-            "https://images.unsplash.com/photo-1581006852262-e4307cf6283a?auto=format&fit=crop&w=1200&q=80",
+          image: img("photo-1581006852262-e4307cf6283a"),
         },
       ],
     },
@@ -348,21 +301,17 @@ export const restaurant: RestaurantData = {
     leadTime: "72-hour notice preferred",
   },
   galleryImages: [
-    "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1523987355523-c7b5b0dd90a7?auto=format&fit=crop&w=1200&q=80",
-    "https://images.unsplash.com/photo-1598515214211-89d3c73ae83b?auto=format&fit=crop&w=1200&q=80",
+    img("photo-1529193591184-b1d58069ecdd"),
+    img("photo-1544025162-d76694265947"),
+    img("photo-1598515214211-89d3c73ae83b"),
+    img("photo-1558030006-450675393462"),
+    img("photo-1523987355523-c7b5b0dd90a7"),
+    img("photo-1551218808-94e220e084d2"),
   ],
-  heroImage:
-    "https://images.unsplash.com/photo-1529193591184-b1d58069ecdd?auto=format&fit=crop&w=2000&q=80",
-  aboutImage:
-    "https://images.unsplash.com/photo-1558030006-450675393462?auto=format&fit=crop&w=1400&q=80",
-  locationImage:
-    "https://images.unsplash.com/photo-1514933651103-005eec06c04b?auto=format&fit=crop&w=1600&q=80",
-  cateringImage:
-    "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1600&q=80",
+  heroImage: img("photo-1529193591184-b1d58069ecdd", 2000),
+  aboutImage: img("photo-1558030006-450675393462", 1400),
+  locationImage: img("photo-1514933651103-005eec06c04b", 1600),
+  cateringImage: img("photo-1598515214211-89d3c73ae83b", 1600),
   seo: {
     title: "Black Hickory BBQ | Texas Smokehouse in Austin",
     description:
@@ -376,8 +325,20 @@ export const restaurant: RestaurantData = {
 /** Featured dishes derived from menu items marked featured */
 export function getFeaturedItems(data: RestaurantData = restaurant): MenuItem[] {
   return data.menu.flatMap((category) =>
-    category.items.filter((item) => item.featured),
+    category.items.filter((item) => item.featured && Boolean(item.image)),
   );
+}
+
+/** Menu categories with only items that have images */
+export function getMenuWithImages(
+  data: RestaurantData = restaurant,
+): MenuCategory[] {
+  return data.menu
+    .map((category) => ({
+      ...category,
+      items: category.items.filter((item) => Boolean(item.image)),
+    }))
+    .filter((category) => category.items.length > 0);
 }
 
 export function formatPrice(price: number, unit?: string): string {

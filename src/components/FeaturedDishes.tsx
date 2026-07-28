@@ -4,10 +4,11 @@ import {
   getFeaturedItems,
   restaurant,
 } from "@/data/restaurant";
-import { GradientMedia } from "@/components/GradientMedia";
 
 export function FeaturedDishes() {
   const featured = getFeaturedItems(restaurant).slice(0, 3);
+
+  if (featured.length === 0) return null;
 
   return (
     <section className="section-pad" aria-labelledby="featured-heading">
@@ -17,12 +18,12 @@ export function FeaturedDishes() {
             <p className="eyebrow">From the pit</p>
             <h2
               id="featured-heading"
-              className="mt-3 font-display text-4xl font-bold tracking-[0.03em] uppercase text-[color:var(--brand-primary)] sm:text-5xl"
+              className="mt-3 font-display text-4xl font-bold tracking-[0.03em] text-[color:var(--ink)] uppercase sm:text-5xl"
             >
               Smokehouse signatures
             </h2>
           </div>
-          <p className="max-w-sm text-base leading-relaxed text-[color:var(--ink-muted)]">
+          <p className="max-w-sm text-base leading-relaxed font-medium text-[color:var(--ink-muted)]">
             The cuts people drive across town for — barky brisket, sticky ribs,
             and plates piled high.
           </p>
@@ -33,28 +34,24 @@ export function FeaturedDishes() {
             <li key={item.id} className="group">
               <article className="overflow-hidden rounded-[var(--radius-card)] border border-[color:var(--line)] bg-[color:var(--surface-elevated)] shadow-[var(--shadow-soft)] transition duration-500 hover:-translate-y-1.5 hover:shadow-[var(--shadow-lift)]">
                 <div className="relative aspect-[4/5] overflow-hidden">
-                  {item.image ? (
-                    <Image
-                      src={item.image}
-                      alt={item.name}
-                      fill
-                      className="img-zoom object-cover"
-                      sizes="(max-width: 1024px) 100vw, 33vw"
-                    />
-                  ) : (
-                    <GradientMedia className="h-full w-full" variant="dusk" />
-                  )}
-                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent p-5 pt-24">
-                    <p className="text-sm font-bold tracking-wide text-[color:var(--brand-accent)]">
+                  <Image
+                    src={item.image}
+                    alt={item.name}
+                    fill
+                    className="img-zoom object-cover"
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                  />
+                  <div className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-black via-black/70 to-transparent p-5 pt-28">
+                    <p className="text-sm font-bold tracking-wide text-[#ffb089]">
                       {formatPrice(item.price, item.unit)}
                     </p>
-                    <h3 className="mt-1 font-display text-2xl font-bold tracking-[0.04em] uppercase text-[#f7f1e6]">
+                    <h3 className="mt-1 font-display text-2xl font-bold tracking-[0.04em] text-white uppercase">
                       {item.name}
                     </h3>
                   </div>
                 </div>
                 <div className="p-5">
-                  <p className="text-sm leading-relaxed text-[color:var(--ink-muted)]">
+                  <p className="text-sm leading-relaxed font-medium text-[color:var(--ink-muted)]">
                     {item.description}
                   </p>
                 </div>
