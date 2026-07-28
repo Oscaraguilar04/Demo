@@ -1,16 +1,17 @@
 import type { CSSProperties, ReactNode } from "react";
 import type { Metadata } from "next";
-import { Fraunces, Outfit } from "next/font/google";
+import { Manrope, Syne } from "next/font/google";
 import { restaurant } from "@/data/restaurant";
 import "./globals.css";
 
-const display = Fraunces({
+const display = Syne({
   variable: "--font-display",
   subsets: ["latin"],
   display: "swap",
+  weight: ["500", "600", "700", "800"],
 });
 
-const body = Outfit({
+const body = Manrope({
   variable: "--font-body",
   subsets: ["latin"],
   display: "swap",
@@ -24,6 +25,7 @@ export const metadata: Metadata = {
     description: restaurant.seo.ogDescription,
     type: "website",
     locale: "en_US",
+    images: [{ url: restaurant.heroImage }],
   },
 };
 
@@ -44,7 +46,7 @@ export default function RootLayout({
             "--brand-primary": restaurant.primaryColor,
             "--brand-accent": restaurant.accentColor,
             "--brand-primary-soft":
-              "color-mix(in srgb, var(--brand-primary) 82%, white)",
+              "color-mix(in srgb, var(--brand-primary) 78%, white)",
           } as CSSProperties
         }
       >

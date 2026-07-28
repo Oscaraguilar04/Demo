@@ -4,6 +4,8 @@
  * Edit this single file to personalize the entire website for a client demo.
  * Swap names, colors, hours, menu items, links, and image paths — no other
  * source files need restaurant-specific content.
+ *
+ * Images may be local paths (/images/...) or remote URLs (e.g. Unsplash).
  */
 
 export interface MenuItem {
@@ -12,6 +14,7 @@ export interface MenuItem {
   description: string;
   price: number;
   featured?: boolean;
+  image?: string;
 }
 
 export interface MenuCategory {
@@ -72,6 +75,8 @@ export interface RestaurantData {
   galleryImages: string[];
   heroImage: string;
   aboutImage: string;
+  locationImage: string;
+  cateringImage: string;
   seo: {
     title: string;
     description: string;
@@ -83,9 +88,9 @@ export interface RestaurantData {
 export const restaurant: RestaurantData = {
   businessName: "Mesa Verde Kitchen",
   shortName: "Mesa Verde",
-  tagline: "Neighborhood cooking, Central Valley hospitality",
+  tagline: "Bold plates. Warm tables. Pure Bakersfield.",
   description:
-    "Warm plates, generous portions, and a welcoming table for families and friends in Bakersfield. Fresh ingredients, familiar favorites, and a kitchen that still cooks like it matters.",
+    "Seasonal California cooking with Central Valley soul — shareable starters, flame-kissed mains, and a neighborhood energy that feels like home.",
   aboutStory:
     "Mesa Verde Kitchen started as a small neighborhood spot with a simple idea: serve honest food that brings people together. From weekend brunch tables to weekday takeout, we cook with care for the families, workers, and neighbors who make Bakersfield feel like home. Every plate is meant to be shared — and remembered.",
   trustStatement: "Locally owned in Bakersfield",
@@ -101,8 +106,8 @@ export const restaurant: RestaurantData = {
   orderUrl: "https://www.toasttab.com/",
   instagramUrl: "https://www.instagram.com/",
   facebookUrl: "https://www.facebook.com/",
-  primaryColor: "#1C3A2E",
-  accentColor: "#B8893D",
+  primaryColor: "#0F1412",
+  accentColor: "#FF5A36",
   hours: [
     { day: "Monday", open: "11:00 AM", close: "9:00 PM" },
     { day: "Tuesday", open: "11:00 AM", close: "9:00 PM" },
@@ -125,18 +130,24 @@ export const restaurant: RestaurantData = {
             "House hummus, warm pita, olive oil, and pickled vegetables",
           price: 11,
           featured: true,
+          image:
+            "https://images.unsplash.com/photo-1577805947697-89e18249d767?auto=format&fit=crop&w=1200&q=80",
         },
         {
           id: "crispy-calamari",
           name: "Crispy Calamari",
           description: "Lightly fried, citrus aioli, chili flake",
           price: 14,
+          image:
+            "https://images.unsplash.com/photo-1599487488170-d11ec9c172f0?auto=format&fit=crop&w=1200&q=80",
         },
         {
           id: "street-corn-cups",
           name: "Street Corn Cups",
           description: "Charred corn, cotija, lime crema, cilantro",
           price: 10,
+          image:
+            "https://images.unsplash.com/photo-1551504734-5ee1c4a1479b?auto=format&fit=crop&w=1200&q=80",
         },
       ],
     },
@@ -151,6 +162,8 @@ export const restaurant: RestaurantData = {
           description:
             "Romaine, cucumber, tomato, avocado, chickpeas, herb vinaigrette",
           price: 15,
+          image:
+            "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1200&q=80",
         },
         {
           id: "citrus-chicken-bowl",
@@ -159,12 +172,16 @@ export const restaurant: RestaurantData = {
             "Grilled chicken, quinoa, greens, orange segments, toasted almonds",
           price: 17,
           featured: true,
+          image:
+            "https://images.unsplash.com/photo-1546069901-ba9599a7e63c?auto=format&fit=crop&w=1200&q=80",
         },
         {
           id: "caesar",
           name: "Classic Caesar",
           description: "Romaine, parmesan, garlic croutons, anchovy dressing",
           price: 13,
+          image:
+            "https://images.unsplash.com/photo-1550304943-4f24f54ddde9?auto=format&fit=crop&w=1200&q=80",
         },
       ],
     },
@@ -180,12 +197,16 @@ export const restaurant: RestaurantData = {
             "Angus beef, aged cheddar, caramelized onion, house sauce, fries",
           price: 18,
           featured: true,
+          image:
+            "https://images.unsplash.com/photo-1568901346375-23c9450c58cd?auto=format&fit=crop&w=1200&q=80",
         },
         {
           id: "braised-short-rib",
           name: "Braised Short Rib",
           description: "Slow-cooked short rib, mashed potatoes, roasted carrots",
           price: 28,
+          image:
+            "https://images.unsplash.com/photo-1544025162-d76694265947?auto=format&fit=crop&w=1200&q=80",
         },
         {
           id: "chile-verde-enchiladas",
@@ -193,6 +214,8 @@ export const restaurant: RestaurantData = {
           description:
             "Corn tortillas, pork chile verde, crema, pickled onion, rice",
           price: 19,
+          image:
+            "https://images.unsplash.com/photo-1565299585323-38d6b0865b47?auto=format&fit=crop&w=1200&q=80",
         },
         {
           id: "market-catch",
@@ -200,6 +223,8 @@ export const restaurant: RestaurantData = {
           description:
             "Pan-seared fish, seasonal vegetables, lemon butter, herbs",
           price: 26,
+          image:
+            "https://images.unsplash.com/photo-1467003909585-2f8a72700288?auto=format&fit=crop&w=1200&q=80",
         },
       ],
     },
@@ -213,12 +238,16 @@ export const restaurant: RestaurantData = {
           name: "Churro Bites",
           description: "Cinnamon sugar, warm chocolate sauce",
           price: 9,
+          image:
+            "https://images.unsplash.com/photo-1551024601-bec78aea704b?auto=format&fit=crop&w=1200&q=80",
         },
         {
           id: "olive-oil-cake",
           name: "Olive Oil Cake",
           description: "Citrus glaze, whipped cream, seasonal berries",
           price: 10,
+          image:
+            "https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=1200&q=80",
         },
       ],
     },
@@ -232,18 +261,24 @@ export const restaurant: RestaurantData = {
           name: "Agua Fresca",
           description: "Rotating seasonal fruit, lightly sweetened",
           price: 5,
+          image:
+            "https://images.unsplash.com/photo-1546173159-315724a31696?auto=format&fit=crop&w=1200&q=80",
         },
         {
           id: "house-lemonade",
           name: "House Lemonade",
           description: "Fresh-squeezed with a hint of mint",
           price: 5,
+          image:
+            "https://images.unsplash.com/photo-1621263764928-df1444c5e859?auto=format&fit=crop&w=1200&q=80",
         },
         {
           id: "cold-brew",
           name: "Cold Brew Coffee",
           description: "Locally roasted, served over ice",
           price: 5,
+          image:
+            "https://images.unsplash.com/photo-1517701604599-bb29b565090c?auto=format&fit=crop&w=1200&q=80",
         },
       ],
     },
@@ -275,7 +310,7 @@ export const restaurant: RestaurantData = {
     },
   ],
   catering: {
-    headline: "Catering for gatherings large and small",
+    headline: "Catering that shows up looking incredible",
     description:
       "From office lunches to family celebrations, Mesa Verde Kitchen brings familiar flavors and easy setup to your event across Bakersfield.",
     benefits: [
@@ -288,13 +323,21 @@ export const restaurant: RestaurantData = {
     leadTime: "48-hour notice preferred",
   },
   galleryImages: [
-    "/images/gallery-1.svg",
-    "/images/gallery-2.svg",
-    "/images/gallery-3.svg",
-    "/images/gallery-4.svg",
+    "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1559339352-11d035aa65de?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1551218808-94e220e084d2?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1478144592103-25e218a04891?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1600891964599-f61ba0a25d0b?auto=format&fit=crop&w=1200&q=80",
+    "https://images.unsplash.com/photo-1466978913421-dad2ebd01d17?auto=format&fit=crop&w=1200&q=80",
   ],
-  heroImage: "/images/hero-food.svg",
-  aboutImage: "/images/about-dining.svg",
+  heroImage:
+    "https://images.unsplash.com/photo-1504674900247-0877df9cc836?auto=format&fit=crop&w=2000&q=80",
+  aboutImage:
+    "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1400&q=80",
+  locationImage:
+    "https://images.unsplash.com/photo-1555396273-367ea4eb4db5?auto=format&fit=crop&w=1600&q=80",
+  cateringImage:
+    "https://images.unsplash.com/photo-1555244162-803435f59416?auto=format&fit=crop&w=1600&q=80",
   seo: {
     title: "Mesa Verde Kitchen | Neighborhood Restaurant in Bakersfield, CA",
     description:

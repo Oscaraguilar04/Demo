@@ -5,6 +5,7 @@ import { restaurant } from "@/data/restaurant";
 
 const navLinks = [
   { href: "#menu", label: "Menu" },
+  { href: "#gallery", label: "Gallery" },
   { href: "#about", label: "About" },
   { href: "#catering", label: "Catering" },
   { href: "#hours", label: "Hours" },
@@ -15,7 +16,7 @@ export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
 
   useEffect(() => {
-    const onScroll = () => setScrolled(window.scrollY > 12);
+    const onScroll = () => setScrolled(window.scrollY > 40);
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
@@ -28,31 +29,53 @@ export function Navigation() {
     };
   }, [open]);
 
+  const overHero = !scrolled && !open;
+
   return (
     <header
-      className={`sticky top-0 z-40 border-b transition-colors duration-300 ${
-        scrolled
-          ? "border-[color:var(--line)] bg-[color:var(--surface)]/92 backdrop-blur-md"
-          : "border-transparent bg-transparent"
+      className={`fixed inset-x-0 top-0 z-40 transition-all duration-300 ${
+        scrolled || open
+          ? "border-b border-[color:var(--line)] bg-white/90 shadow-[0_8px_30px_rgba(15,20,18,0.06)] backdrop-blur-xl"
+          : "border-b border-transparent bg-transparent"
       }`}
     >
+      <div
+        className={`text-center text-[10px] tracking-[0.18em] uppercase sm:text-[11px] ${
+          overHero
+            ? "bg-black/35 text-white/85 backdrop-blur-sm"
+            : "bg-[color:var(--brand-primary)] text-white/85"
+        }`}
+        role="note"
+      >
+        <p className="section-shell py-2">
+          Demo concept · Not the official restaurant website ·{" "}
+          {restaurant.shortName}
+        </p>
+      </div>
+
       <nav
-        className="section-shell flex h-16 items-center justify-between gap-4 sm:h-[4.5rem]"
+        className="section-shell flex h-16 items-center justify-between gap-4 sm:h-[4.25rem]"
         aria-label="Primary"
       >
         <a
           href="#top"
-          className="font-display text-xl font-semibold tracking-tight text-[color:var(--brand-primary)] sm:text-2xl"
+          className={`font-display text-xl font-bold tracking-tight sm:text-2xl ${
+            overHero ? "text-white" : "text-[color:var(--brand-primary)]"
+          }`}
         >
           {restaurant.shortName}
         </a>
 
-        <ul className="hidden items-center gap-8 md:flex">
+        <ul className="hidden items-center gap-7 lg:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="text-sm font-medium text-[color:var(--ink-muted)] transition hover:text-[color:var(--brand-primary)]"
+                className={`text-sm font-medium transition ${
+                  overHero
+                    ? "text-white/80 hover:text-white"
+                    : "text-[color:var(--ink-muted)] hover:text-[color:var(--brand-primary)]"
+                }`}
               >
                 {link.label}
               </a>
@@ -73,7 +96,11 @@ export function Navigation() {
 
         <button
           type="button"
-          className="inline-flex h-11 w-11 items-center justify-center rounded-full border border-[color:var(--line)] bg-white/80 text-[color:var(--brand-primary)] md:hidden"
+          className={`inline-flex h-11 w-11 items-center justify-center rounded-full border backdrop-blur-sm md:hidden ${
+            overHero
+              ? "border-white/30 bg-white/10 text-white"
+              : "border-[color:var(--line)] bg-white/80 text-[color:var(--brand-primary)]"
+          }`}
           aria-expanded={open}
           aria-controls="mobile-nav"
           aria-label={open ? "Close menu" : "Open menu"}
@@ -96,7 +123,7 @@ export function Navigation() {
 
       <div
         id="mobile-nav"
-        className={`border-t border-[color:var(--line)] bg-[color:var(--surface)] md:hidden ${
+        className={`border-t border-[color:var(--line)] bg-white md:hidden ${
           open ? "block" : "hidden"
         }`}
       >
@@ -105,7 +132,7 @@ export function Navigation() {
             <li key={link.href}>
               <a
                 href={link.href}
-                className="block rounded-xl px-3 py-3 text-base font-medium text-[color:var(--brand-primary)] hover:bg-white"
+                className="block rounded-xl px-3 py-3 text-base font-medium text-[color:var(--brand-primary)] hover:bg-[color:var(--surface)]"
                 onClick={() => setOpen(false)}
               >
                 {link.label}

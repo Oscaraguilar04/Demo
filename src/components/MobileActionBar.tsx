@@ -6,7 +6,7 @@ import {
 export function MobileActionBar() {
   return (
     <div
-      className="fixed inset-x-0 bottom-0 z-50 border-t border-[color:var(--line)] bg-[color:var(--surface-elevated)]/95 backdrop-blur-md md:hidden"
+      className="fixed inset-x-0 bottom-0 z-50 border-t border-[color:var(--line)] bg-white/95 shadow-[0_-8px_30px_rgba(15,20,18,0.08)] backdrop-blur-xl md:hidden"
       style={{
         paddingBottom: "env(safe-area-inset-bottom, 0px)",
       }}
@@ -17,7 +17,7 @@ export function MobileActionBar() {
       >
         <a
           href={getTelHref()}
-          className="flex flex-col items-center justify-center gap-1 text-[11px] font-semibold tracking-wide text-[color:var(--brand-primary)] transition hover:bg-[color:var(--surface)] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-[-3px] focus-visible:outline-[color:var(--brand-accent)]"
+          className="flex flex-col items-center justify-center gap-1 text-[11px] font-bold tracking-wide text-[color:var(--brand-primary)] transition hover:bg-[color:var(--surface)] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-[-3px] focus-visible:outline-[color:var(--brand-accent)]"
         >
           <PhoneIcon />
           Call
@@ -26,7 +26,7 @@ export function MobileActionBar() {
           href={restaurant.directionsUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col items-center justify-center gap-1 border-x border-[color:var(--line)] text-[11px] font-semibold tracking-wide text-[color:var(--brand-primary)] transition hover:bg-[color:var(--surface)] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-[-3px] focus-visible:outline-[color:var(--brand-accent)]"
+          className="flex flex-col items-center justify-center gap-1 border-x border-[color:var(--line)] text-[11px] font-bold tracking-wide text-[color:var(--brand-primary)] transition hover:bg-[color:var(--surface)] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-[-3px] focus-visible:outline-[color:var(--brand-accent)]"
         >
           <PinIcon />
           Directions
@@ -35,7 +35,7 @@ export function MobileActionBar() {
           href={restaurant.orderUrl}
           target="_blank"
           rel="noopener noreferrer"
-          className="flex flex-col items-center justify-center gap-1 text-[11px] font-semibold tracking-wide text-[color:var(--brand-primary)] transition hover:bg-[color:var(--surface)] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-[-3px] focus-visible:outline-[color:var(--brand-accent)]"
+          className="flex flex-col items-center justify-center gap-1 bg-[color:var(--brand-accent)] text-[11px] font-bold tracking-wide text-white transition hover:brightness-110 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-[-3px] focus-visible:outline-white"
         >
           <BagIcon />
           Order
@@ -93,7 +93,7 @@ function BagIcon() {
       viewBox="0 0 24 24"
       fill="none"
       aria-hidden="true"
-      className="text-[color:var(--brand-accent)]"
+      className="text-white"
     >
       <path
         d="M6.75 8.25h10.5l-.75 11.25H7.5L6.75 8.25Z"

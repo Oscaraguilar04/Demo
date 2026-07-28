@@ -1,16 +1,17 @@
 @import "tailwindcss";
 
 :root {
-  --brand-primary: #1c3a2e;
-  --brand-accent: #b8893d;
-  --brand-primary-soft: #2a5240;
-  --surface: #f4f6f2;
+  --brand-primary: #0f1412;
+  --brand-accent: #ff5a36;
+  --brand-primary-soft: #2a3330;
+  --surface: #f7f7f5;
   --surface-elevated: #ffffff;
-  --ink: #18241e;
-  --ink-muted: #4d5c54;
-  --line: rgba(28, 58, 46, 0.12);
-  --shadow-soft: 0 12px 40px rgba(24, 36, 30, 0.08);
-  --radius-card: 1.25rem;
+  --ink: #0f1412;
+  --ink-muted: #5c6561;
+  --line: rgba(15, 20, 18, 0.1);
+  --shadow-soft: 0 18px 50px rgba(15, 20, 18, 0.1);
+  --shadow-lift: 0 28px 60px rgba(15, 20, 18, 0.16);
+  --radius-card: 1.5rem;
   --mobile-bar-height: 4.5rem;
 }
 
@@ -44,16 +45,16 @@ html {
 
 body {
   background:
-    radial-gradient(ellipse 80% 50% at 10% -10%, rgba(184, 137, 61, 0.12), transparent 55%),
-    radial-gradient(ellipse 70% 45% at 100% 0%, rgba(28, 58, 46, 0.1), transparent 50%),
-    linear-gradient(180deg, #eef2ed 0%, var(--surface) 28%, #f7f8f5 100%);
+    radial-gradient(ellipse 90% 55% at 0% -5%, rgba(255, 90, 54, 0.08), transparent 50%),
+    radial-gradient(ellipse 70% 40% at 100% 5%, rgba(15, 20, 18, 0.05), transparent 45%),
+    var(--surface);
   color: var(--ink);
   font-family: var(--font-body), system-ui, sans-serif;
   min-height: 100%;
 }
 
 ::selection {
-  background: color-mix(in srgb, var(--brand-accent) 35%, white);
+  background: color-mix(in srgb, var(--brand-accent) 40%, white);
   color: var(--ink);
 }
 
@@ -63,53 +64,61 @@ body {
 }
 
 .font-display {
-  font-family: var(--font-display), Georgia, "Times New Roman", serif;
+  font-family: var(--font-display), system-ui, sans-serif;
 }
 
 .section-shell {
   @apply mx-auto w-full max-w-6xl px-5 sm:px-8;
 }
 
+.section-shell-wide {
+  @apply mx-auto w-full max-w-7xl px-5 sm:px-8;
+}
+
 .section-pad {
-  @apply py-20 sm:py-24 lg:py-28;
+  @apply py-20 sm:py-24 lg:py-32;
 }
 
 .eyebrow {
-  @apply text-xs font-semibold uppercase tracking-[0.22em] text-[color:var(--brand-accent)];
+  @apply text-[11px] font-bold uppercase tracking-[0.28em] text-[color:var(--brand-accent)];
 }
 
 .btn-primary {
-  @apply inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--brand-primary)] px-6 py-3 text-sm font-semibold text-white shadow-[var(--shadow-soft)] transition duration-200 hover:-translate-y-0.5 hover:bg-[color:var(--brand-primary-soft)] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[color:var(--brand-accent)];
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--brand-primary)] px-7 py-3.5 text-sm font-semibold tracking-wide text-white shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-0.5 hover:bg-[color:var(--brand-primary-soft)] focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[color:var(--brand-accent)];
 }
 
 .btn-secondary {
-  @apply inline-flex items-center justify-center gap-2 rounded-full border border-[color:var(--line)] bg-white/70 px-6 py-3 text-sm font-semibold text-[color:var(--brand-primary)] backdrop-blur-sm transition duration-200 hover:-translate-y-0.5 hover:border-[color:var(--brand-primary)] hover:bg-white focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[color:var(--brand-accent)];
+  @apply inline-flex items-center justify-center gap-2 rounded-full border border-[color:var(--line)] bg-white/80 px-7 py-3.5 text-sm font-semibold tracking-wide text-[color:var(--brand-primary)] backdrop-blur-sm transition duration-300 hover:-translate-y-0.5 hover:border-[color:var(--brand-primary)] hover:bg-white focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[color:var(--brand-accent)];
 }
 
 .btn-accent {
-  @apply inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--brand-accent)] px-6 py-3 text-sm font-semibold text-[#1a2418] shadow-[var(--shadow-soft)] transition duration-200 hover:-translate-y-0.5 hover:brightness-105 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-[color:var(--brand-primary)];
+  @apply inline-flex items-center justify-center gap-2 rounded-full bg-[color:var(--brand-accent)] px-7 py-3.5 text-sm font-semibold tracking-wide text-white shadow-[var(--shadow-soft)] transition duration-300 hover:-translate-y-0.5 hover:brightness-110 focus-visible:outline focus-visible:outline-3 focus-visible:outline-offset-3 focus-visible:outline-white;
 }
 
 .card-surface {
   @apply rounded-[var(--radius-card)] border border-[color:var(--line)] bg-[color:var(--surface-elevated)] shadow-[var(--shadow-soft)];
 }
 
+.img-zoom {
+  @apply transition duration-700 ease-out group-hover:scale-105;
+}
+
 .fade-up {
-  animation: fade-up 0.7s ease-out both;
+  animation: fade-up 0.8s cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
 .fade-up-delay-1 {
-  animation-delay: 0.12s;
+  animation-delay: 0.14s;
 }
 
 .fade-up-delay-2 {
-  animation-delay: 0.24s;
+  animation-delay: 0.28s;
 }
 
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(22px);
   }
   to {
     opacity: 1;
@@ -117,7 +126,6 @@ body {
   }
 }
 
-/* Space for fixed mobile action bar */
 .page-with-mobile-bar {
   padding-bottom: calc(var(--mobile-bar-height) + env(safe-area-inset-bottom, 0px));
 }

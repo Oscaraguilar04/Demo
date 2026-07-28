@@ -1,36 +1,33 @@
 import Image from "next/image";
-import {
-  getFullAddress,
-  restaurant,
-} from "@/data/restaurant";
+import { getFullAddress, restaurant } from "@/data/restaurant";
 
 export function LocationHours() {
   return (
     <section
       id="hours"
-      className="section-pad scroll-mt-24"
+      className="section-pad scroll-mt-28"
       aria-labelledby="hours-heading"
     >
-      <div className="section-shell grid gap-10 lg:grid-cols-2 lg:gap-12">
+      <div className="section-shell grid gap-10 lg:grid-cols-2 lg:gap-14">
         <div>
           <p className="eyebrow">Visit us</p>
           <h2
             id="hours-heading"
-            className="mt-3 font-display text-3xl font-semibold tracking-tight text-[color:var(--brand-primary)] sm:text-4xl"
+            className="mt-3 font-display text-4xl font-bold tracking-tight text-[color:var(--brand-primary)] sm:text-5xl"
           >
-            Location &amp; hours
+            Find your table
           </h2>
-          <address className="mt-6 not-italic">
-            <p className="text-lg font-semibold text-[color:var(--ink)]">
+          <address className="mt-7 not-italic">
+            <p className="text-xl font-bold text-[color:var(--ink)]">
               {restaurant.businessName}
             </p>
-            <p className="mt-2 text-base leading-relaxed text-[color:var(--ink-muted)]">
+            <p className="mt-2 text-base leading-relaxed text-[color:var(--ink-muted)] sm:text-lg">
               {getFullAddress()}
             </p>
-            <p className="mt-2 text-base text-[color:var(--ink-muted)]">
+            <p className="mt-3">
               <a
                 href={`tel:+1${restaurant.phone}`}
-                className="font-medium text-[color:var(--brand-primary)] underline-offset-4 hover:underline"
+                className="text-lg font-semibold text-[color:var(--brand-accent)] underline-offset-4 hover:underline"
               >
                 {restaurant.formattedPhone}
               </a>
@@ -46,36 +43,42 @@ export function LocationHours() {
             Get Directions
           </a>
 
-          <h3 className="mt-10 text-sm font-semibold uppercase tracking-[0.18em] text-[color:var(--brand-accent)]">
+          <h3 className="mt-12 text-[11px] font-bold uppercase tracking-[0.22em] text-[color:var(--brand-accent)]">
             Weekly hours
           </h3>
           <ul className="mt-4 divide-y divide-[color:var(--line)] border-y border-[color:var(--line)]">
             {restaurant.hours.map((entry) => (
               <li
                 key={entry.day}
-                className="flex items-center justify-between gap-4 py-3 text-sm sm:text-base"
+                className="flex items-center justify-between gap-4 py-3.5 text-sm sm:text-base"
               >
-                <span className="font-medium text-[color:var(--ink)]">
+                <span className="font-semibold text-[color:var(--ink)]">
                   {entry.day}
                 </span>
                 <span className="tabular-nums text-[color:var(--ink-muted)]">
-                  {entry.closed
-                    ? "Closed"
-                    : `${entry.open} – ${entry.close}`}
+                  {entry.closed ? "Closed" : `${entry.open} – ${entry.close}`}
                 </span>
               </li>
             ))}
           </ul>
         </div>
 
-        <div className="relative min-h-[320px] overflow-hidden rounded-[1.75rem] border border-[color:var(--line)] shadow-[var(--shadow-soft)] sm:min-h-[420px]">
+        <div className="relative min-h-[360px] overflow-hidden rounded-[2rem] shadow-[var(--shadow-lift)] sm:min-h-[480px]">
           <Image
-            src="/images/map-placeholder.svg"
-            alt={`Map placeholder for ${getFullAddress()}`}
+            src={restaurant.locationImage}
+            alt={`Exterior vibe near ${getFullAddress()}`}
             fill
             className="object-cover"
             sizes="(max-width: 1024px) 100vw, 50vw"
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-transparent" />
+          <div className="absolute inset-x-0 bottom-0 p-6 text-white sm:p-8">
+            <p className="font-display text-2xl font-bold">Come hungry</p>
+            <p className="mt-2 max-w-sm text-sm text-white/80">
+              Open daily in downtown Bakersfield — patio seating when the
+              weather&apos;s right.
+            </p>
+          </div>
         </div>
       </div>
     </section>

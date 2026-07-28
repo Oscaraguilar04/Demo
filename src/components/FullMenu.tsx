@@ -1,60 +1,75 @@
+import Image from "next/image";
 import { formatPrice, restaurant } from "@/data/restaurant";
+import { GradientMedia } from "@/components/GradientMedia";
 
 export function FullMenu() {
   return (
     <section
       id="menu"
-      className="section-pad scroll-mt-24 bg-[linear-gradient(180deg,rgba(28,58,46,0.04)_0%,transparent_100%)]"
+      className="section-pad scroll-mt-28 bg-[color:var(--brand-primary)] text-white"
       aria-labelledby="menu-heading"
     >
       <div className="section-shell">
         <div className="max-w-2xl">
-          <p className="eyebrow">The menu</p>
+          <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-[color:var(--brand-accent)]">
+            The menu
+          </p>
           <h2
             id="menu-heading"
-            className="mt-3 font-display text-3xl font-semibold tracking-tight text-[color:var(--brand-primary)] sm:text-4xl"
+            className="mt-3 font-display text-4xl font-bold tracking-tight sm:text-5xl"
           >
             What we&apos;re cooking
           </h2>
-          <p className="mt-4 text-base leading-relaxed text-[color:var(--ink-muted)] sm:text-lg">
-            Browse by category. Prices and descriptions update from the
-            restaurant data file for easy personalization.
+          <p className="mt-4 text-base leading-relaxed text-white/70 sm:text-lg">
+            Browse by category. Every dish, price, and photo updates from the
+            restaurant data file.
           </p>
         </div>
 
-        <div className="mt-14 space-y-14">
+        <div className="mt-16 space-y-16">
           {restaurant.menu.map((category) => (
             <div key={category.id}>
-              <div className="mb-6 flex flex-col gap-2 border-b border-[color:var(--line)] pb-4 sm:flex-row sm:items-end sm:justify-between">
-                <div>
-                  <h3 className="font-display text-2xl font-semibold text-[color:var(--brand-primary)]">
-                    {category.name}
-                  </h3>
-                  {category.description ? (
-                    <p className="mt-1 text-sm text-[color:var(--ink-muted)]">
-                      {category.description}
-                    </p>
-                  ) : null}
-                </div>
+              <div className="mb-8 flex flex-col gap-2 border-b border-white/15 pb-5">
+                <h3 className="font-display text-2xl font-bold sm:text-3xl">
+                  {category.name}
+                </h3>
+                {category.description ? (
+                  <p className="text-sm text-white/55">{category.description}</p>
+                ) : null}
               </div>
 
-              <ul className="grid gap-5 md:grid-cols-2">
+              <ul className="grid gap-4 sm:grid-cols-2">
                 {category.items.map((item) => (
                   <li
                     key={item.id}
-                    className="rounded-2xl border border-[color:var(--line)] bg-white/70 p-5 transition hover:border-[color:var(--brand-primary)]/25 hover:bg-white"
+                    className="group flex gap-4 rounded-2xl border border-white/10 bg-white/5 p-3 transition duration-300 hover:border-white/25 hover:bg-white/10"
                   >
-                    <div className="flex items-baseline justify-between gap-4">
-                      <h4 className="text-base font-semibold text-[color:var(--ink)]">
-                        {item.name}
-                      </h4>
-                      <span className="shrink-0 font-semibold tabular-nums text-[color:var(--brand-primary)]">
-                        {formatPrice(item.price)}
-                      </span>
+                    <div className="relative h-24 w-24 shrink-0 overflow-hidden rounded-xl sm:h-28 sm:w-28">
+                      {item.image ? (
+                        <Image
+                          src={item.image}
+                          alt=""
+                          fill
+                          className="img-zoom object-cover"
+                          sizes="112px"
+                        />
+                      ) : (
+                        <GradientMedia className="h-full w-full" />
+                      )}
                     </div>
-                    <p className="mt-2 text-sm leading-relaxed text-[color:var(--ink-muted)]">
-                      {item.description}
-                    </p>
+                    <div className="flex min-w-0 flex-1 flex-col justify-center py-1 pr-1">
+                      <div className="flex items-baseline justify-between gap-3">
+                        <h4 className="truncate text-base font-semibold">
+                          {item.name}
+                        </h4>
+                        <span className="shrink-0 font-bold tabular-nums text-[color:var(--brand-accent)]">
+                          {formatPrice(item.price)}
+                        </span>
+                      </div>
+                      <p className="mt-1.5 line-clamp-2 text-sm leading-relaxed text-white/60">
+                        {item.description}
+                      </p>
+                    </div>
                   </li>
                 ))}
               </ul>
@@ -62,12 +77,12 @@ export function FullMenu() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-14 text-center">
           <a
             href={restaurant.orderUrl}
             target="_blank"
             rel="noopener noreferrer"
-            className="btn-primary"
+            className="btn-accent"
           >
             Order Online
           </a>

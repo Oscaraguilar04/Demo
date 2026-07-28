@@ -5,25 +5,35 @@ export function About() {
   return (
     <section
       id="about"
-      className="section-pad scroll-mt-24"
+      className="section-pad scroll-mt-28 overflow-hidden"
       aria-labelledby="about-heading"
     >
-      <div className="section-shell grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-        <div className="relative aspect-[5/6] overflow-hidden rounded-[1.75rem] shadow-[var(--shadow-soft)] sm:aspect-[4/5]">
-          <Image
-            src={restaurant.aboutImage}
-            alt={`Dining atmosphere at ${restaurant.businessName}`}
-            fill
-            className="object-cover"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
+      <div className="section-shell grid items-center gap-12 lg:grid-cols-12 lg:gap-10">
+        <div className="relative lg:col-span-7">
+          <div className="relative aspect-[4/5] overflow-hidden rounded-[2rem] shadow-[var(--shadow-lift)] sm:aspect-[5/4] lg:aspect-[4/3]">
+            <Image
+              src={restaurant.aboutImage}
+              alt={`Dining atmosphere at ${restaurant.businessName}`}
+              fill
+              className="object-cover"
+              sizes="(max-width: 1024px) 100vw, 60vw"
+            />
+          </div>
+          <div className="absolute -bottom-6 -right-2 hidden max-w-[220px] rounded-2xl bg-[color:var(--brand-accent)] p-5 text-white shadow-[var(--shadow-lift)] sm:block lg:-right-4">
+            <p className="font-display text-2xl font-bold leading-tight">
+              Built for neighbors
+            </p>
+            <p className="mt-2 text-sm text-white/90">
+              {restaurant.trustStatement}
+            </p>
+          </div>
         </div>
 
-        <div>
+        <div className="lg:col-span-5 lg:pl-4">
           <p className="eyebrow">Our story</p>
           <h2
             id="about-heading"
-            className="mt-3 font-display text-3xl font-semibold tracking-tight text-[color:var(--brand-primary)] sm:text-4xl"
+            className="mt-3 font-display text-4xl font-bold tracking-tight text-[color:var(--brand-primary)] sm:text-5xl"
           >
             Rooted in Bakersfield
           </h2>
@@ -35,9 +45,9 @@ export function About() {
             gatherings, feeding regulars by name, and keeping a welcoming table
             open for neighbors across the Central Valley.
           </p>
-          <p className="mt-8 text-sm font-semibold tracking-wide text-[color:var(--brand-accent)]">
-            {restaurant.trustStatement}
-          </p>
+          <a href="#hours" className="btn-primary mt-9">
+            Plan your visit
+          </a>
         </div>
       </div>
     </section>
